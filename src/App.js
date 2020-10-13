@@ -3,14 +3,25 @@ import axios from "axios";
 import "./styles.css";
 
 class App extends Component {
-  state = {
-    error: null,
-    isLoaded: false,
-    items: []
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      value: "",
+      items: []
+    };
 
-  componentDidMount() {
-    axios.get("https://restcountries.eu/rest/v2/all").then(
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
+
+  handleSubmit(event) {
+    axios.get(`https://restcountries.eu/rest/v2/name/${this.state.value}`).then(
       (result) => {
         this.setState({
           isLoaded: true,
@@ -24,18 +35,33 @@ class App extends Component {
         });
       }
     );
+
+    event.preventDefault();
   }
 
   render() {
     const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <div className="App">
-          <h1> Countries in the World </h1>
+
+    return (
+      <div className="App">
+        <h1> Country Finder </h1>
+
+        <div className="form">
+          <h2> Search for any country you want </h2>
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Country:
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+              />
+            </label>
+            <input type="submit" value="Submit" />
+          </form>
+        </div>
+
+        <div className="result">
           <ul>
             {items.map((item) => (
               <li key={item.name}>
@@ -47,8 +73,8 @@ class App extends Component {
             ))}
           </ul>
         </div>
-      );
-    }
+      </div>
+    );
   }
 }
 
