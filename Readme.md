@@ -14,6 +14,8 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
 
 - Take the API response and display the country name, capital, population and currency.
 
+  > You can filter the output of your request to include only the specified fields. `https://restcountries.eu/rest/v2/{service}?fields={field};{field};{field}`
+
   ```
   [[{
     "name": "Colombia",
