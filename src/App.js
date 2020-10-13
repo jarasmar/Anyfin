@@ -8,8 +8,8 @@ class App extends Component {
     this.state = {
       error: null,
       isLoaded: false,
-      value: "",
-      items: []
+      country: "",
+      countryDetails: []
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,30 +17,32 @@ class App extends Component {
   }
 
   handleChange(event) {
-    this.setState({ value: event.target.value });
+    this.setState({ country: event.target.value });
   }
 
   handleSubmit(event) {
-    axios.get(`https://restcountries.eu/rest/v2/name/${this.state.value}`).then(
-      (result) => {
-        this.setState({
-          isLoaded: true,
-          items: result.data
-        });
-      },
-      (error) => {
-        this.setState({
-          isLoaded: true,
-          error
-        });
-      }
-    );
+    axios
+      .get(`https://restcountries.eu/rest/v2/name/${this.state.country}`)
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            countryDetails: result.data
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      );
 
     event.preventDefault();
   }
 
   render() {
-    const { error, isLoaded, items } = this.state;
+    const { error, isLoaded, countryDetails } = this.state;
 
     return (
       <div className="App">
@@ -53,7 +55,7 @@ class App extends Component {
               Country:
               <input
                 type="text"
-                value={this.state.value}
+                value={this.state.country}
                 onChange={this.handleChange}
               />
             </label>
@@ -63,7 +65,7 @@ class App extends Component {
 
         <div className="result">
           <ul>
-            {items.map((item) => (
+            {countryDetails.map((item) => (
               <li key={item.name}>
                 <h2> {item.name} </h2>
                 <p>Capital: {item.capital}</p>
