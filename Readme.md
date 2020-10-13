@@ -9,6 +9,24 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
 ## How it works
 
 - Display a search box that takes the name of a country as input and makes a call to the restcountries API.
+
+  > Use the search by country name function (it can be the native name or partial name) `https://restcountries.eu/rest/v2/name/{name}`
+
 - Take the API response and display the country name, capital, population and currency.
+
+  ```
+  [[{
+    "name": "Colombia",
+    "capital": "Bogotá",
+    "population": 48759958,
+    "currencies": [{
+      "code": "COP",
+      "name": "Colombian peso",
+      "symbol": "$"
+    }]
+  }]
+  ```
+
 - Display a input box next to the currency that takes an amount of SEK and makes a call to the Fixer API.
+
 - Take the API response and display the amount of SEK translated to the local currency of the country.
