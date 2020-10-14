@@ -2,11 +2,11 @@
 
 Create a simple web interface using React which allows users to:
 
-a) Search for countries and display its full country name, capital, population and currency. This can be a simple list, but you can also get creative in how to vizualise these data points.
+a) Search for countries and display its full country name, capital, population and currency. This can be a simple list, but you can also get creative in how to vizualize these data points.
 
 b) Enter an amount in SEK and get the amount converted into local currency for each country.
 
-## How it works
+## Functionality Planning
 
 - Display a search box that takes the name of a country as input and makes a call to the restcountries API.
 
@@ -44,6 +44,17 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
   "date": "2020-10-14",
   "rates": {
     "COP": 1.565
+    }
   }
-}
   ```
+
+## Design Planning
+
+The app will have two different components as featured in the mockup:
+
+  - Country: user can input the desired country and it will render the name, flag, capital, population and currency. The button 'Currency' on the right top will bring the new component to the front, hiding country information.
+
+  - Currency: user can input any amount of SEK and it will return the equivalence on the chosen country currency. The button 'Country' on the left top will bring the country component to the front, hiding the currency exchange.
+
+
+![mockup](./images/CurrencyExchangeMockup.jpg)
