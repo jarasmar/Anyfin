@@ -29,31 +29,21 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
   }]
   ```
 
-- Display an input box next to the currency that takes an amount of SEK and makes a call to the Fixer API.
+- Display an input box next to the currency that takes an amount of SEK and makes a call to the Exchange Rate API.
 
   ```
-  https://data.fixer.io/api/convert
-    ? access_key = API_KEY
-    & from = GBP            // {item.currencies[0].code}
-    & to = SEK
-    & amount = 25
+  https://api.exchangeratesapi.io/latest
+  ?base=SEK
+  &symbols=COP      // ${this.state.countryDetails[0].currencies[0].code}
   ```
 
 - Take the API response and display the amount of SEK translated to the local currency of the country.
   ```
   {
-    "success": true,
-    "query": {
-        "from": "GBP",
-        "to": "SEK",
-        "amount": 25
-    },
-    "info": {
-        "timestamp": 1519328414,
-        "rate": 148.972231
-    },
-    "historical": ""
-    "date": "2020-10-13"
-    "result": 3724.305775
-}  
+  "base": "SEK",
+  "date": "2020-10-14",
+  "rates": {
+    "COP": 1.565
+  }
+}
   ```

@@ -6,35 +6,63 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: null,
-      isLoaded: false,
       country: "",
-      countryDetails: []
+      countryDetails: [],
+      money: 0,
+      moneyDetails: []
     };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCountryChange = this.handleCountryChange.bind(this);
+    this.handleCountrySubmit = this.handleCountrySubmit.bind(this);
+
+    this.handleMoneyChange = this.handleMoneyChange.bind(this);
+    this.handleMoneySubmit = this.handleMoneySubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleCountryChange(event) {
     this.setState({ country: event.target.value });
   }
 
-  handleSubmit(event) {
+  handleCountrySubmit(event) {
     axios
       .get(`https://restcountries.eu/rest/v2/name/${this.state.country}`)
       .then(
         (result) => {
           this.setState({
-            isLoaded: true,
             countryDetails: result.data
           });
         },
         (error) => {
           this.setState({
-            isLoaded: true,
-            error
+            country: "Enter a valid input"
           });
+          console.log(error);
+        }
+      );
+
+    event.preventDefault();
+  }
+
+  handleMoneyChange(event) {
+    this.setState({ money: event.target.value });
+  }
+
+  handleMoneySubmit(event) {
+    axios
+      .get(`https://api.exchangeratesapi.io/latest?base=SEK&symbols=${this.state.countryDetails[0].currencies[0].code}`)
+      .then(
+        (result) => {
+          this.setState({
+            moneyDetails: result.data
+          });
+
+          console.log(this.state.moneyDetails.rates);
+        },
+        (error) => {
+          this.setState({
+            money: "Enter a valid input"
+          });
+          console.log(error);
         }
       );
 
@@ -42,28 +70,28 @@ class App extends Component {
   }
 
   render() {
-    const { error, isLoaded, countryDetails } = this.state;
+    const { countryDetails, moneyDetails } = this.state;
 
     return (
       <div className="App">
         <h1> Country Finder </h1>
 
-        <div className="form">
+        <div className="country-form">
           <h2> Search for any country you want </h2>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleCountrySubmit}>
             <label>
               Country:
               <input
                 type="text"
                 value={this.state.country}
-                onChange={this.handleChange}
+                onChange={this.handleCountryChange}
               />
             </label>
             <input type="submit" value="Submit" />
           </form>
         </div>
 
-        <div className="result">
+        <div className="country-result">
           <ul>
             {countryDetails.map((item) => (
               <li key={item.name}>
@@ -74,6 +102,25 @@ class App extends Component {
               </li>
             ))}
           </ul>
+        </div>
+
+        <div className="money-form">
+          <h2> Money Exchange </h2>
+          <form onSubmit={this.handleMoneySubmit}>
+            <label>
+              Amount:
+              <input
+                type="number"
+                value={this.state.money}
+                onChange={this.handleMoneyChange}
+              />
+            </label>
+            <input type="submit" value="Change" />
+          </form>
+        </div>
+
+        <div className="money-result">
+          <h2> result </h2> 
         </div>
       </div>
     );
