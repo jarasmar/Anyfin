@@ -8,8 +8,8 @@ class App extends Component {
     this.state = {
       country: "",
       countryDetails: [],
-      money: 0,
-      moneyDetails: []
+      exchangeAmount: 0,
+      exchangeRate: 0
     };
 
     this.handleCountryChange = this.handleCountryChange.bind(this);
@@ -31,6 +31,7 @@ class App extends Component {
           this.setState({
             countryDetails: result.data
           });
+          console.log(this.state.countryDetails);
         },
         (error) => {
           this.setState({
@@ -44,7 +45,7 @@ class App extends Component {
   }
 
   handleMoneyChange(event) {
-    this.setState({ money: event.target.value });
+    this.setState({ exchangeAmount: event.target.value });
   }
 
   handleMoneySubmit(event) {
@@ -53,10 +54,10 @@ class App extends Component {
       .then(
         (result) => {
           this.setState({
-            moneyDetails: result.data
+            exchangeRate: result.data['rates'][`${this.state.countryDetails[0].currencies[0].code}`]
           });
 
-          console.log(this.state.moneyDetails.rates);
+          console.log(this.state.exchangeRate);
         },
         (error) => {
           this.setState({
@@ -70,7 +71,7 @@ class App extends Component {
   }
 
   render() {
-    const { countryDetails, moneyDetails } = this.state;
+    const { countryDetails, exchangeRate } = this.state;
 
     return (
       <div className="App">
@@ -120,7 +121,8 @@ class App extends Component {
         </div>
 
         <div className="money-result">
-          <h2> result </h2> 
+          <h2>Exchange result</h2>
+          <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
         </div>
       </div>
     );
