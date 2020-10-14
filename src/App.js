@@ -124,26 +124,46 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <br></br><br></br>
         
         <div className="currency-container">
-          <div className="currency-form">
-            <h2> Money Exchange </h2>
-            <form onSubmit={this.handleMoneySubmit}>
-              <label>
-                Amount:
-                <input
-                  type="number"
-                  value={this.state.money}
-                  onChange={this.handleMoneyChange}
-                />
-              </label>
-              <input type="submit" value="Change" />
-            </form>
+          <div className="currency-nav">
+            <div className="currency-nav-button">
+              <button><h1>COUNTRY</h1></button>
+            </div>
+            <div className="currency-nav-title">
+              <h1>CURRENCY</h1>
+            </div>
           </div>
+          
+          <div className="currency-intro">
+            <h2> Money Exchange </h2>
+            <h4>Insert any amount of SEK to get the result in the local currency</h4>
+          </div>
+          
+          <div className="currency-form">
+            <div className="currency-input-container">
+              <div className="input">
+                <form onSubmit={this.handleMoneySubmit}>
+                  <label>
+                    <input
+                      type="number"
+                      placeholder="Amount"
+                      value={this.state.money}
+                      onChange={this.handleMoneyChange}
+                    />
+                  </label>
+                  <input type="submit" value="Change" />
+                </form>
+              </div>
+            </div>
 
-          <div className="currency-result">
-            <h2>Exchange result</h2>
-            <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+            <div className="currency-output-container">
+              <div className="output">
+                <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+              </div>
+            </div>
           </div>
         </div>
       </div>
