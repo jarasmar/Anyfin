@@ -75,54 +75,76 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1> Country Finder </h1>
+        <div className="country-container">
+          <div className="country-nav">
+            <div className="country-nav-title">
+              <h1>COUNTRY</h1>
+            </div>
+            <div className="country-nav-button">
+              <button><h1>CURRENCY</h1></button>
+            </div>
+          </div>
 
-        <div className="country-form">
-          <h2> Search for any country you want </h2>
-          <form onSubmit={this.handleCountrySubmit}>
-            <label>
-              Country:
-              <input
-                type="text"
-                value={this.state.country}
-                onChange={this.handleCountryChange}
-              />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+          <div className="country-form">
+            <h2> Search for any country you want </h2>
+            <form onSubmit={this.handleCountrySubmit}>
+              <label>
+                <input
+                  type="text"
+                  placeholder="Type country..."
+                  value={this.state.country}
+                  onChange={this.handleCountryChange}
+                />
+              </label>
+              <input type="submit" value="Search" />
+            </form>
+          </div>
+      
+          <div className="country-result">
+            <div className="country-flag-container">
+              <div className="flag">
+                {countryDetails.map((item) => (
+                  <img src={item.flag} />
+                ))}
+              </div>
+            </div>
+            <div className="country-details-container">
+              <div className="details">
+                <ul>
+                  {countryDetails.map((item) => (
+                    <li key={item.name}>
+                      <h2> {item.name} </h2>
+                      <p>Capital: {item.capital}</p>
+                      <p> Population: {item.population} </p>
+                      <p> Currency: {item.currencies[0].name} </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
+        
+        <div className="currency-container">
+          <div className="currency-form">
+            <h2> Money Exchange </h2>
+            <form onSubmit={this.handleMoneySubmit}>
+              <label>
+                Amount:
+                <input
+                  type="number"
+                  value={this.state.money}
+                  onChange={this.handleMoneyChange}
+                />
+              </label>
+              <input type="submit" value="Change" />
+            </form>
+          </div>
 
-        <div className="country-result">
-          <ul>
-            {countryDetails.map((item) => (
-              <li key={item.name}>
-                <h2> {item.name} </h2>
-                <p>Capital: {item.capital}</p>
-                <p> Population: {item.population} </p>
-                <p> Currency: {item.currencies[0].name} </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        <div className="money-form">
-          <h2> Money Exchange </h2>
-          <form onSubmit={this.handleMoneySubmit}>
-            <label>
-              Amount:
-              <input
-                type="number"
-                value={this.state.money}
-                onChange={this.handleMoneyChange}
-              />
-            </label>
-            <input type="submit" value="Change" />
-          </form>
-        </div>
-
-        <div className="money-result">
-          <h2>Exchange result</h2>
-          <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+          <div className="currency-result">
+            <h2>Exchange result</h2>
+            <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+          </div>
         </div>
       </div>
     );
