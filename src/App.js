@@ -96,7 +96,7 @@ class App extends Component {
                   onChange={this.handleCountryChange}
                 />
               </label>
-              <input type="submit" value="Search" />
+              <input type="submit" value="Search" id="submit-button" />
             </form>
           </div>
       
@@ -113,10 +113,10 @@ class App extends Component {
                 <ul>
                   {countryDetails.map((item) => (
                     <li key={item.name}>
-                      <h2> {item.name} </h2>
-                      <p>Capital: {item.capital}</p>
-                      <p> Population: {item.population} </p>
-                      <p> Currency: {item.currencies[0].name} </p>
+                      <h1> {item.name} </h1>
+                      <p><strong>Capital: </strong>{item.capital}</p>
+                      <p><strong>Population: </strong> {item.population}</p>
+                      <p><strong>Currency: </strong> {item.currencies[0].name} </p>
                     </li>
                   ))}
                 </ul>

@@ -53,6 +53,14 @@ html {
   text-align: center;
 }
 
+.country-form input {
+  padding: .3rem;
+}
+
+#submit-button {
+  background-color: #ffeef2;
+}
+
 .country-result {
   display: flex;
 }
