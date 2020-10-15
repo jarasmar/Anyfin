@@ -173,14 +173,12 @@ class App extends Component {
             <div className="currency-input-container">
               <div className="input">
                 <div className="input-amount">
-                  <form>
                     <input
                       type="number"
                       placeholder="Amount"
                       value={this.state.money}
                       onChange={this.handleMoneyChange}
                     />
-                  </form>
                 </div>
                 <div className="input-code">
                   <h2>SEK</h2>
