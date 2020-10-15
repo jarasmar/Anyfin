@@ -1,9 +1,30 @@
+@font-face {
+  font-family: 'Gilroy Light';
+  src: url('fonts/gilroy-light-webfont.woff2') format('woff2'),
+       url('fonts/gilroy-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gilroy Bold';
+  src: url('fonts/gilroy-extrabold-webfont.woff2') format('woff2'),
+       url('fonts/gilroy-extrabold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 html {
   background-color: #0A1668;
-  font-family: "Gilroy", sans-serif;
+  font-family: "Gilroy Light", sans-serif;
   color: #2C2D3A;
 }
 
+h1,
+h2 {
+  font-family: "Gilroy Bold";
+}
 
 
 
@@ -33,6 +54,7 @@ html {
 .country-nav-title {
   flex: 1;
   text-align: center;
+  margin: auto;
 }
 
 .country-nav-button {
@@ -48,6 +70,7 @@ html {
   border-radius: 0 20px 0 0;
   border: transparent;
   cursor: pointer;
+  font-family: "Gilroy Bold", sans-serif;
 }
 
 .country-nav-button button:focus {
@@ -155,6 +178,7 @@ html {
 .currency-nav-title {
   flex: 1;
   text-align: center;
+  margin: auto;
 }
 
 .currency-nav-button {
@@ -170,6 +194,7 @@ html {
   border-radius: 20px 0 0 0;
   border: transparent;
   cursor: pointer;
+  font-family: "Gilroy Bold", sans-serif;
 }
 
 .currency-nav-button button:focus {
