@@ -19,7 +19,7 @@ html {
   margin: auto;
   position: relative;
   background-color: #f5f5f5;
-  border-radius: 2%;
+  border-radius: 20px;
   display: grid;
   grid-template-rows: 20% 30% 50% ;
 }
@@ -38,7 +38,9 @@ html {
   flex: 1;
   text-align: center;
   background-color: #ffeef2;
-  box-shadow: inset 1px -1px 5px 0px rgba(0,0,0,0.75);}
+  box-shadow: inset 1px -1px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 0 20px 0 0;
+}
 
 .country-nav-button button {
   width: 100%;
@@ -49,6 +51,7 @@ html {
 
 .country-form {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .country-form input {
@@ -103,7 +106,7 @@ html {
   margin: auto;
   position: relative;
   background-color: #f5f5f5;
-  border-radius: 2%;
+  border-radius: 20px;
   display: grid;
   grid-template-rows: 20% 30% 50% ;
 }
@@ -122,7 +125,9 @@ html {
   flex: 1;
   text-align: center;
   background-color: #ffeef2;
-  box-shadow: inset -1px -1px 5px 0px rgba(0,0,0,0.75);}
+  box-shadow: inset -1px -1px 5px 0px rgba(0,0,0,0.75);
+  border-radius: 20px 0 0 0;
+}
 
 .currency-nav-button button {
   width: 100%;
@@ -133,6 +138,7 @@ html {
 
 .currency-intro {
   text-align: center;
+  margin-top: 1rem;
 }
 
 .currency-form {
