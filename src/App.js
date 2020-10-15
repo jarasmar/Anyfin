@@ -1,13 +1,25 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./styles.css";
+import { HiArrowCircleRight } from "react-icons/hi";
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       country: "",
-      countryDetails: [],
+      countryDetails: [{
+        name: "Sweden",
+        capital: "Stockholm",
+        population: 9894888,
+        flag: "https://restcountries.eu/data/swe.svg",
+        currencies : [{
+          code: "SEK", 
+          name: "Swedish krona", 
+          symbol: "kr"
+        }]
+      }],
+      currencyCode: "SEK",
       exchangeAmount: 0,
       exchangeRate: 0
     };
@@ -71,58 +83,117 @@ class App extends Component {
   }
 
   render() {
-    const { countryDetails, exchangeRate } = this.state;
+    const { countryDetails } = this.state;
+    if (this.state.countryDetails.length !== 0) {
+      this.state.currencyCode = this.state.countryDetails[0].currencies[0].code;
+    }
 
     return (
       <div className="App">
-        <h1> Country Finder </h1>
+        <div className="country-container">
+          <div className="country-nav">
+            <div className="country-nav-title">
+              <h1>COUNTRY</h1>
+            </div>
+            <div className="country-nav-button">
+              <button><h1>CURRENCY</h1></button>
+            </div>
+          </div>
 
-        <div className="country-form">
-          <h2> Search for any country you want </h2>
-          <form onSubmit={this.handleCountrySubmit}>
-            <label>
-              Country:
-              <input
-                type="text"
-                value={this.state.country}
-                onChange={this.handleCountryChange}
-              />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+          <div className="country-form">
+            <h2> Country Finder </h2>
+            <form onSubmit={this.handleCountrySubmit}>
+              <label>
+                <input
+                  type="text"
+                  placeholder="Type country..."
+                  value={this.state.country}
+                  onChange={this.handleCountryChange}
+                />
+              </label>
+              <input type="submit" value="Search" id="submit-button" />
+            </form>
+          </div>
+      
+          <div className="country-result">
+            <div className="country-flag-container">
+              <div className="flag">
+                {countryDetails.map((item) => (
+                  <img src={item.flag} alt="flag" />
+                ))}
+              </div>
+            </div>
+            <div className="country-details-container">
+              <div className="details">
+                <ul>
+                  {countryDetails.map((item) => (
+                    <li key={item.name}>
+                      <h1> {item.name} </h1>
+                      <p><strong>Capital: </strong>{item.capital}</p>
+                      <p><strong>Population: </strong> {item.population}</p>
+                      <p><strong>Currency: </strong> {item.currencies[0].name} </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="country-result">
-          <ul>
-            {countryDetails.map((item) => (
-              <li key={item.name}>
-                <h2> {item.name} </h2>
-                <p>Capital: {item.capital}</p>
-                <p> Population: {item.population} </p>
-                <p> Currency: {item.currencies[0].name} </p>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <br></br><br></br>
+        
+        <div className="currency-container">
+          <div className="currency-nav">
+            <div className="currency-nav-button">
+              <button><h1>COUNTRY</h1></button>
+            </div>
+            <div className="currency-nav-title">
+              <h1>CURRENCY</h1>
+            </div>
+          </div>
+          
+          <div className="currency-intro">
+            <h2> Money Exchange </h2>
+            <h4>Insert any amount of Swedish Krona to get the conversion to the local currency</h4>
+            <h4> 
+              {this.state.countryDetails[0].name}'s currency is {this.state.countryDetails[0].currencies[0].name} ({this.state.countryDetails[0].currencies[0].symbol})
+            </h4>
+          </div>
+          
+          <div className="currency-form">
+            <div className="currency-input-container">
+              <div className="input">
+                <div className="input-amount">
+                  <form>
+                    <input
+                      type="number"
+                      placeholder="Amount"
+                      value={this.state.money}
+                      onChange={this.handleMoneyChange}
+                    />
+                  </form>
+                </div>
+                <div className="input-code">
+                  <h2>SEK</h2>
+                </div>
+              </div>
+            </div>
+            
+            <div className="currency-button-container">
+              <a onClick={this.handleMoneySubmit}><HiArrowCircleRight className="currency-button"/></a>
+            </div>
 
-        <div className="money-form">
-          <h2> Money Exchange </h2>
-          <form onSubmit={this.handleMoneySubmit}>
-            <label>
-              Amount:
-              <input
-                type="number"
-                value={this.state.money}
-                onChange={this.handleMoneyChange}
-              />
-            </label>
-            <input type="submit" value="Change" />
-          </form>
-        </div>
-
-        <div className="money-result">
-          <h2>Exchange result</h2>
-          <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+            <div className="currency-output-container">
+              <div className="output">
+                <div className="output-amount">
+                  <h2> {(this.state.exchangeAmount * this.state.exchangeRate).toFixed(2)} </h2>
+                </div>
+                <div className="output-code">
+                  <h2> {this.state.currencyCode} </h2>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
