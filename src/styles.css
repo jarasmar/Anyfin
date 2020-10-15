@@ -153,12 +153,76 @@ html {
 
 .input {
   text-align: center;
-  background-color: aquamarine;
-  padding: 24px 0;
+  float:right;
+  width: 60%;
+  display: flex;
+  border: 2px #2C2D3A solid;
+  border-radius: .5rem;
+}
+
+.input-amount {
+  flex: 2;
+  background-color: white;
+  border-right: 2px #2C2D3A solid;
+  border-radius: .5rem 0 0 .5rem;
+  padding: 2px 0;
+}
+
+.input-amount input {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  margin: .75em 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+.input-amount input:focus {
+  outline: none;
+}
+
+/* Remove arrows (Chrome, Safari, Edge, Opera) */
+.input-amount input::-webkit-outer-spin-button,
+.input-amount input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove arrows (Firefox) */
+.input-amount input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.input-code {
+  flex: 1;
+  background-color: #ffeef2;
+  border-radius: 0 .5rem .5rem 0;
+  padding: 2px;
+}
+
+.currency-button-container {
+  flex: 1;
+  margin: auto;
+  text-align: center;
+}
+
+.currency-button {
+  width: 60px; 
+  height: auto;
+  color: "#2C2D3A";
+}
+
+.currency-button:hover {
+  cursor: pointer;
+  color: #0A1668;
 }
 
 .currency-output-container {
-  flex: 1;
+  flex: 2;
   margin: auto;
   text-align: center;
 }

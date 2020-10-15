@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import "./styles.css";
+import { HiArrowCircleRight } from "react-icons/hi";
 
 class App extends Component {
   constructor(props) {
@@ -118,7 +119,7 @@ class App extends Component {
             <div className="country-flag-container">
               <div className="flag">
                 {countryDetails.map((item) => (
-                  <img src={item.flag} />
+                  <img src={item.flag} alt="flag" />
                 ))}
               </div>
             </div>
@@ -153,24 +154,34 @@ class App extends Component {
           
           <div className="currency-intro">
             <h2> Money Exchange </h2>
-            <h4>Insert any amount of SEK to get the result in the local currency</h4>
+            <h4>Insert any amount of Swedish Krona to get the conversion to the local currency</h4>
+            <h4> 
+              {this.state.countryDetails[0].name}'s currency is {this.state.countryDetails[0].currencies[0].name} ({this.state.countryDetails[0].currencies[0].symbol})
+            </h4>
           </div>
           
           <div className="currency-form">
             <div className="currency-input-container">
               <div className="input">
-                <form onSubmit={this.handleMoneySubmit}>
-                  <label>
+                <div className="input-amount">
+                  <form>
                     <input
                       type="number"
                       placeholder="Amount"
                       value={this.state.money}
                       onChange={this.handleMoneyChange}
+                      id="input-box"
                     />
-                  </label>
-                  <input type="submit" value="Change" />
-                </form>
+                  </form>
+                </div>
+                <div className="input-code">
+                  <h2>SEK</h2>
+                </div>
               </div>
+            </div>
+            
+            <div className="currency-button-container">
+              <a onClick={this.handleMoneySubmit}><HiArrowCircleRight className="currency-button"/></a>
             </div>
 
             <div className="currency-output-container">
