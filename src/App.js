@@ -83,7 +83,7 @@ class App extends Component {
   }
 
   render() {
-    const { countryDetails, exchangeRate } = this.state;
+    const { countryDetails } = this.state;
     if (this.state.countryDetails.length !== 0) {
       this.state.currencyCode = this.state.countryDetails[0].currencies[0].code;
     }
@@ -101,7 +101,7 @@ class App extends Component {
           </div>
 
           <div className="country-form">
-            <h2> Search for any country you want </h2>
+            <h2> Country Finder </h2>
             <form onSubmit={this.handleCountrySubmit}>
               <label>
                 <input
@@ -170,7 +170,6 @@ class App extends Component {
                       placeholder="Amount"
                       value={this.state.money}
                       onChange={this.handleMoneyChange}
-                      id="input-box"
                     />
                   </form>
                 </div>
