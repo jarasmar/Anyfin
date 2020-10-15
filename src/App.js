@@ -7,7 +7,17 @@ class App extends Component {
     super(props);
     this.state = {
       country: "",
-      countryDetails: [],
+      countryDetails: [{
+        name: "Sweden",
+        capital: "Stockholm",
+        population: 9894888,
+        flag: "https://restcountries.eu/data/swe.svg",
+        currencies : [{
+          code: "SEK", 
+          name: "Swedish krona", 
+          symbol: "kr"
+        }]
+      }],
       currencyCode: "SEK",
       exchangeAmount: 0,
       exchangeRate: 0
