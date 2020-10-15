@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Currency_Converter/static/css/main.6f540deb.chunk.css",
+    "main.js": "/Currency_Converter/static/js/main.b240f23f.chunk.js",
+    "main.js.map": "/Currency_Converter/static/js/main.b240f23f.chunk.js.map",
+    "runtime-main.js": "/Currency_Converter/static/js/runtime-main.9b861942.js",
+    "runtime-main.js.map": "/Currency_Converter/static/js/runtime-main.9b861942.js.map",
+    "static/js/2.b5c52bea.chunk.js": "/Currency_Converter/static/js/2.b5c52bea.chunk.js",
+    "static/js/2.b5c52bea.chunk.js.map": "/Currency_Converter/static/js/2.b5c52bea.chunk.js.map",
+    "index.html": "/Currency_Converter/index.html",
+    "precache-manifest.bcdf49ea53fa303facb4466c7f564056.js": "/Currency_Converter/precache-manifest.bcdf49ea53fa303facb4466c7f564056.js",
+    "service-worker.js": "/Currency_Converter/service-worker.js",
+    "static/css/main.6f540deb.chunk.css.map": "/Currency_Converter/static/css/main.6f540deb.chunk.css.map",
+    "static/js/2.b5c52bea.chunk.js.LICENSE.txt": "/Currency_Converter/static/js/2.b5c52bea.chunk.js.LICENSE.txt",
+    "static/media/styles.css": "/Currency_Converter/static/media/gilroy-light-webfont.d30fbcc3.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9b861942.js",
+    "static/js/2.b5c52bea.chunk.js",
+    "static/css/main.6f540deb.chunk.css",
+    "static/js/main.b240f23f.chunk.js"
+  ]
+}
