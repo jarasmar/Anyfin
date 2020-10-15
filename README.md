@@ -72,3 +72,19 @@ Font: Anyfin's corporate font Gilroy.
 - Improve restcountries API response handling: when the input name is vague the API returns several countries and they all try to get displayed.
 - Add loading animations when waiting for API responses.
 - Add slower transition when changing between country and currency components.
+
+## How to run the application
+
+- Download the repository to your local machine from the command line:
+    ```
+    git clone https://github.com/jarasmar/Currency_Converter.git
+    ```
+- Install all the necesary dependencies:
+    ```
+    npm install
+    ```
+- Start the application:
+    ```
+    npm start
+    ```
+- Visit `http://localhost:3000/Currency_Converter`
