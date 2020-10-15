@@ -159,11 +159,26 @@ html {
 
 .output {
   text-align: center;
-  width: 50%;
-  background-color: cadetblue;
-  padding: 1px;
+  width: 60%;
+  display: flex;
+  border: 2px #2C2D3A solid;
+  border-radius: .5rem;
 }
 
+.output-amount {
+  flex: 2;
+  background-color: white;
+  border-right: 2px #2C2D3A solid;
+  border-radius: .5rem 0 0 .5rem;
+  padding: 2px;
+}
+
+.output-code {
+  flex: 1;
+  background-color: #ffeef2;
+  border-radius: 0 .5rem .5rem 0;
+  padding: 2px;
+}
 
 
 

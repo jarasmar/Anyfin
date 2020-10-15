@@ -8,6 +8,7 @@ class App extends Component {
     this.state = {
       country: "",
       countryDetails: [],
+      currencyCode: "SEK",
       exchangeAmount: 0,
       exchangeRate: 0
     };
@@ -72,6 +73,9 @@ class App extends Component {
 
   render() {
     const { countryDetails, exchangeRate } = this.state;
+    if (this.state.countryDetails.length !== 0) {
+      this.state.currencyCode = this.state.countryDetails[0].currencies[0].code;
+    }
 
     return (
       <div className="App">
@@ -161,7 +165,12 @@ class App extends Component {
 
             <div className="currency-output-container">
               <div className="output">
-                <h2> {this.state.exchangeAmount * this.state.exchangeRate} </h2>
+                <div className="output-amount">
+                  <h2> {(this.state.exchangeAmount * this.state.exchangeRate).toFixed(2)} </h2>
+                </div>
+                <div className="output-code">
+                  <h2> {this.state.currencyCode} </h2>
+                </div>
               </div>
             </div>
           </div>
