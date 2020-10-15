@@ -8,6 +8,8 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
 
 I first build all the functionality, making calls to two different APIs to retrieve all the required data after user input. Then, for the styling, I made a simple and intuitive interface using the company's corporate colours and fonts.
 
+![screenshot](./images/CurrencyExchangeScreenshotGif.gif)
+
 ## Functionality Planning
 
 - Display a search box that takes the name of a country as input and makes a call to the restcountries API.
