@@ -56,5 +56,6 @@ The app will have two different components as featured in the mockup:
 
   - Currency: user can input any amount of SEK and it will return the equivalence on the chosen country currency. The button 'Country' on the left top will bring the country component to the front, hiding the currency exchange.
 
+Color Palette: Anyfin's corporate colors (#0A1668, #2C2D3A, #f5f5f5 and #ffeef2)
 
 ![mockup](./images/CurrencyExchangeMockup.jpg)
