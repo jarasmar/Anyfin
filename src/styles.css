@@ -71,13 +71,14 @@ h2 {
   border: transparent;
   cursor: pointer;
   font-family: "Gilroy Bold", sans-serif;
+  transition: 650ms;
 }
 
 .country-nav-button button:focus {
   outline: none;
 }
 
-.country-nav-button button:active {
+.country-nav-button button:hover {
   background-color: pink;
 }
 
@@ -104,13 +105,14 @@ h2 {
   font-size: 1em;
   margin: .75em 0;
   cursor: pointer;
+  transition: 650ms;
 }
 
 .country-form input:focus {
   outline: none;
 }
 
-.country-form input[type="submit"]:active {
+.country-form input[type="submit"]:hover {
   background-color: pink;
 }
 
@@ -195,13 +197,14 @@ h2 {
   border: transparent;
   cursor: pointer;
   font-family: "Gilroy Bold", sans-serif;
+  transition: 650ms;
 }
 
 .currency-nav-button button:focus {
   outline: none;
 }
 
-.currency-nav-button button:active {
+.currency-nav-button button:hover {
   background-color: pink;
 }
 
@@ -280,6 +283,7 @@ h2 {
   width: 60px; 
   height: auto;
   color: "#2C2D3A";
+  transition: 650ms;
 }
 
 .currency-button:hover {

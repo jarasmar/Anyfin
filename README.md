@@ -59,3 +59,10 @@ The app will have two different components as featured in the mockup:
 Color Palette: Anyfin's corporate colors (#0A1668, #2C2D3A, #f5f5f5 and #ffeef2)
 
 ![mockup](./images/CurrencyExchangeMockup.jpg)
+
+## Additional Features
+- Use @media queries to handle responsiveness in smaller devices.
+- Group HTML classes in the CSS file to avoid code repetition.
+- Handle restcountries API response when it returns several countries to display just one at a time.
+- Add loading animations when waiting for API responses.
+- Add slower transition when changing between country and currency components.
