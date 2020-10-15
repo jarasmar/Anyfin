@@ -82,6 +82,16 @@ class App extends Component {
     event.preventDefault();
   }
 
+  bringCurrencyFront() {
+    document.getElementById('country-container').style.zIndex = 1;
+    document.getElementById('currency-container').style.zIndex = 100;
+  }
+
+  bringCountryFront() {
+    document.getElementById('country-container').style.zIndex = 100;
+    document.getElementById('currency-container').style.zIndex = 1;
+  }
+
   render() {
     const { countryDetails } = this.state;
     if (this.state.countryDetails.length !== 0) {
@@ -90,13 +100,13 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div className="country-container">
+        <div className="country-container" id="country-container">
           <div className="country-nav">
             <div className="country-nav-title">
               <h1>COUNTRY</h1>
             </div>
             <div className="country-nav-button">
-              <button><h1>CURRENCY</h1></button>
+              <button onClick={this.bringCurrencyFront}><h1>CURRENCY</h1></button>
             </div>
           </div>
 
@@ -140,12 +150,11 @@ class App extends Component {
           </div>
         </div>
 
-        <br></br><br></br>
         
-        <div className="currency-container">
+        <div className="currency-container" id="currency-container">
           <div className="currency-nav">
             <div className="currency-nav-button">
-              <button><h1>COUNTRY</h1></button>
+              <button onClick={this.bringCountryFront}><h1>COUNTRY</h1></button>
             </div>
             <div className="currency-nav-title">
               <h1>CURRENCY</h1>
@@ -164,14 +173,12 @@ class App extends Component {
             <div className="currency-input-container">
               <div className="input">
                 <div className="input-amount">
-                  <form>
                     <input
                       type="number"
                       placeholder="Amount"
                       value={this.state.money}
                       onChange={this.handleMoneyChange}
                     />
-                  </form>
                 </div>
                 <div className="input-code">
                   <h2>SEK</h2>

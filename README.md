@@ -1,10 +1,12 @@
-# Anyfin Assignment
+# Currency Converter
 
-Create a simple web interface using React which allows users to:
+App made in two and a half days as a technical assignment after an interview with the company Anyfin. The request was building a simple web interface using React which allows users to:
 
-a) Search for countries and display its full country name, capital, population and currency. This can be a simple list, but you can also get creative in how to vizualize these data points.
+a) Search for countries and display its full country name, capital, population and currency. 
 
 b) Enter an amount in SEK and get the amount converted into local currency for each country.
+
+I first build all the functionality, making calls to two different APIs to retrieve all the required data after user input. Then, for the styling, I made a simple and intuitive interface using the company's corporate colours and fonts.
 
 ## Functionality Planning
 
@@ -56,5 +58,15 @@ The app will have two different components as featured in the mockup:
 
   - Currency: user can input any amount of SEK and it will return the equivalence on the chosen country currency. The button 'Country' on the left top will bring the country component to the front, hiding the currency exchange.
 
+Color Palette: Anyfin's corporate colors, gray, blue and pink (#0A1668, #2C2D3A, #f5f5f5 and #ffeef2).
+Font: Anyfin's corporate font Gilroy.
 
 ![mockup](./images/CurrencyExchangeMockup.jpg)
+
+## Additional Features
+
+- Use @media queries to handle responsiveness in smaller devices.
+- Group HTML classes in the CSS file to avoid code repetition.
+- Improve restcountries API response handling: when the input name is vague the API returns several countries and they all try to get displayed.
+- Add loading animations when waiting for API responses.
+- Add slower transition when changing between country and currency components.
