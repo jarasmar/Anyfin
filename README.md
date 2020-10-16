@@ -8,6 +8,8 @@ b) Enter an amount in SEK and get the amount converted into local currency for e
 
 I first build all the functionality, making calls to two different APIs to retrieve all the required data after user input. Then, for the styling, I made a simple and intuitive interface using the company's corporate colours and fonts.
 
+Click this link to visit: https://jarasmar.github.io/Currency_Converter/
+
 ![screenshot](./images/CurrencyExchangeScreenshotGif.gif)
 
 ## Functionality Planning
@@ -73,7 +75,7 @@ Font: Anyfin's corporate font Gilroy.
 - Add loading animations when waiting for API responses.
 - Add slower transition when changing between country and currency components.
 
-## How to run the application
+## How to run the application locally
 
 - Download the repository to your local machine from the command line:
     ```
