@@ -43,7 +43,8 @@ h2 {
   box-shadow: 0px 0px 0px 2px #2C2D3A;
   border-radius: 20px;
   display: grid;
-  grid-template-rows: 20% 30% 50% ;
+  grid-template-rows: 20% 30% 50%;
+  overflow: hidden;
 }
 
 .country-nav {
