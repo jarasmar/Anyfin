@@ -1,6 +1,6 @@
 # Currency Converter
 
-App made in two and a half days as a technical assignment after an interview with the company Anyfin. The request was building a simple web interface using React which allows users to:
+App made in two and a half days as a technical assignment after an interview. The request was building a simple web interface using React which allows users to:
 
 a) Search for countries and display its full country name, capital, population and currency. 
 
@@ -62,8 +62,8 @@ The app will have two different components as featured in the mockup:
 
   - Currency: user can input any amount of SEK and it will return the equivalence on the chosen country currency. The button 'Country' on the left top will bring the country component to the front, hiding the currency exchange.
 
-Color Palette: Anyfin's corporate colors, gray, blue and pink (#0A1668, #2C2D3A, #f5f5f5 and #ffeef2).
-Font: Anyfin's corporate font Gilroy.
+Color Palette: Company's corporate colors, gray, blue and pink (#0A1668, #2C2D3A, #f5f5f5 and #ffeef2).
+Font: Company's corporate font Gilroy.
 
 ![mockup](./images/CurrencyExchangeMockup.jpg)
 
